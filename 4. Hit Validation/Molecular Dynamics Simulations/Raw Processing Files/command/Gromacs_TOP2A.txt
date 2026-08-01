@@ -1,0 +1,219 @@
+
+
+acpype -i ligand.pdb -c bcc -n 0 -a gaff
+
+(for AGS)
+acpype -i ligand.pdb -c bcc -n -2 -a gaff
+
+gmx pdb2gmx -f REC.pdb -o REC_processed.gro -water tip3p -ignh
+> AMBER99SB-ILDN
+
+################################################################################
+# PHẦN 2: GỘP PROTEIN VÀ LIGAND (MANUAL)
+################################################################################
+
+# 2.1. Mở 2 file tọa độ bằng text editor
+gedit REC_processed.gro LIG.gro
+
+# THAO TÁC TAY:
+# - Copy toàn bộ dòng tọa độ nguyên tử trong LIG.gro (Bỏ dòng tiêu đề và dòng box vector ở cuối).
+# - Dán vào REC_processed.gro (Ngay bên trên dòng box vector cuối cùng).
+# - Kéo lên dòng thứ 2 của REC_processed.gro: Cộng thêm số nguyên tử của Ligand vào số hiện tại.
+# - Lưu file REC_processed.gro lại với tên mới là: complex.gro
+
+# 2.2. Chỉnh sửa file Topology (topol.top)
+gedit topol.top
+
+# THAO TÁC TAY TRONG topol.top:
+# - Dưới dòng: #include "amber99sb-ildn.ff/forcefield.itp"
+#   THÊM:     #include "LIG.itp"
+#
+# - Cuối cùng của file, dưới dòng "Protein_chain_A 1":
+#   THÊM:     LIG             1
+
+################################################################################
+# PHẦN 3: ĐÓNG HỘP, SOLVATE VÀ IONIZATION
+################################################################################
+
+gmx editconf -f complex.gro -o box.gro -c -d 1.0 -bt triclinic
+
+gmx solvate -cp box.gro -cs spc216.gro -o box_sol.gro -p topol.top
+
+gmx grompp -f ions.mdp -c box_sol.gro -p topol.top -o ions.tpr -maxwarn 1
+
+gmx genion -s ions.tpr -o box_sol_ion.gro -p topol.top -pname NA -nname CL -neutral -conc 0.15
+>SOL
+
+################################################################################
+# PHẦN 4: NĂNG LƯỢNG TỐI THIỂU (ENERGY MINIMIZATION) & RESTRAINTS
+################################################################################
+
+gmx make_ndx -f LIG.gro -o index_LIG.ndx
+0 & ! a H*
+q
+
+gmx genrestr -f LIG.gro -n index_LIG.ndx -o posre_LIG.itp -fc 1000 1000 1000
+3
+
+# === BƯỚC 2: CẬP NHẬT TOPOL.TOP
+
+#include "topol_Protein_chain_A.itp"
+#ifdef POSRES
+#include "posre_Protein_chain_A.itp"
+#endif
+
+#ifdef POSRES
+#include "posre_DNA_chain_B.itp"
+#endif
+
+#ifdef POSRES
+#include "posre_DNA_chain_C.itp"
+#endif
+
+#ifdef POSRES
+#include "posre_DNA_chain_D.itp"
+#endif
+
+#ifdef POSRES
+#include "posre_DNA_chain_F.itp"
+#endif
+
+#ifdef POSRES
+#include "posre_Protein_chain_G.itp"
+#endif
+
+#include "LIG.itp"
+#ifdef POSRES
+#include "posre_LIG.itp"
+#endif
+
+------------------------------------
+
+gmx make_ndx -f box_sol_ion.gro -o index.ndx
+12 | 1 | 13 (DNA | Protein | LIG)
+q
+
+gmx grompp -f EM_1.mdp -c box_sol_ion.gro -r box_sol_ion.gro -p topol.top -n index.ndx -o EM_1.tpr -maxwarn 1
+gmx mdrun -v -deffnm EM_1
+
+gmx grompp -f EM_2.mdp -c EM_1.gro -r EM_1.gro -p topol.top -n index.ndx -o EM_2.tpr -maxwarn 1
+gmx mdrun -v -deffnm EM_2
+
+# === BƯỚC 6: CẬP NHẬT INDEX CUỐI CÙNG TỪ EM_2 (Cho NVT/NPT) ===
+
+gmx make_ndx -f EM_2.gro -o index.ndx
+12 | 1 | 13 (DNA | Protein | LIG)
+q
+
+################################################################################
+# PHẦN 5: CÂN BẰNG HỆ THỐNG (EQUILIBRATION - NVT & NPT)
+################################################################################
+
+sed "s/^gen_seed.*/gen_seed = 12345/" NVT.mdp > NVT_rep1.mdp
+gmx grompp -f NVT_rep1.mdp -c EM_2.gro -r EM_2.gro -p topol.top -n index.ndx -o NVT_rep1.tpr
+nohup gmx mdrun -v -deffnm NVT_rep1 \
+    -ntomp 32 \
+    -pin on -pinoffset 2 \
+    -nb gpu -pme gpu -bonded gpu -update gpu \
+    > run_nvt.log 2>&1 &
+
+sed "s/^gen_seed.*/gen_seed = 23456/" NVT.mdp > NVT_rep2.mdp
+gmx grompp -f NVT_rep2.mdp -c EM_2.gro -r EM_2.gro -p topol.top -n index.ndx -o NVT_rep2.tpr
+nohup gmx mdrun -v -deffnm NVT_rep2 \
+    -ntomp 32 \
+    -pin on -pinoffset 2 \
+    -nb gpu -pme gpu -bonded gpu -update gpu \
+    > run_nvt.log 2>&1 &
+
+sed "s/^gen_seed.*/gen_seed = 34567/" NVT.mdp > NVT_rep3.mdp
+gmx grompp -f NVT_rep3.mdp -c EM_2.gro -r EM_2.gro -p topol.top -n index.ndx -o NVT_rep3.tpr
+nohup gmx mdrun -v -deffnm NVT_rep3 \
+    -ntomp 32 \
+    -pin on -pinoffset 2 \
+    -nb gpu -pme gpu -bonded gpu -update gpu \
+    > run_nvt.log 2>&1 &
+
+################################################################################
+                                     NPT
+################################################################################
+
+
+gmx grompp -f NPT.mdp -c NVT_rep1.gro -r NVT_rep1.gro -t NVT_rep1.cpt -p topol.top -n index.ndx -o NPT_rep1.tpr
+nohup gmx mdrun -v -deffnm NPT_rep1 \
+    -ntomp 32 \
+    -pin on -pinoffset 2 \
+    -nb gpu -pme gpu -bonded gpu -update gpu \
+    > run_npt.log 2>&1 &
+
+gmx grompp -f NPT.mdp -c NVT_rep2.gro -r NVT_rep2.gro -t NVT_rep2.cpt -p topol.top -n index.ndx -o NPT_rep2.tpr
+nohup gmx mdrun -v -deffnm NPT_rep2 \
+    -ntomp 32 \
+    -pin on -pinoffset 2 \
+    -nb gpu -pme gpu -bonded gpu -update gpu \
+    > run_npt.log 2>&1 &
+
+gmx grompp -f NPT.mdp -c NVT_rep3.gro -r NVT_rep3.gro -t NVT_rep3.cpt -p topol.top -n index.ndx -o NPT_rep3.tpr
+nohup gmx mdrun -v -deffnm NPT_rep3 \
+    -ntomp 32 \
+    -pin on -pinoffset 2 \
+    -nb gpu -pme gpu -bonded gpu -update gpu \
+    > run_npt.log 2>&1 &
+
+################################################################################
+# PHẦN 6: PRODUCTION MD
+################################################################################
+
+nohup gmx mdrun -s MD_rep1.tpr -deffnm md_1 -ntomp 32 -pin on -pinoffset 2 -nb gpu -pme gpu -bonded gpu -update gpu -v > run_md_1.log 2>&1 &
+
+nohup gmx mdrun -s MD_rep2.tpr -deffnm md_2 -ntomp 32 -pin on -pinoffset 2 -nb gpu -pme gpu -bonded gpu -update gpu -v > run_md_2.log 2>&1 &
+
+nohup gmx mdrun -s MD_rep3.tpr -deffnm md_3 -ntomp 32 -pin on -pinoffset 2 -nb gpu -pme gpu -bonded gpu -update gpu -v > run_md_3.log 2>&1 &
+
+################################################################################
+# PHẦN 7: PHÂN TÍCH KẾT QUẢ (POST-PROCESSING)
+################################################################################
+
+gmx make_ndx -f EM_2.gro -n index.ndx -o index.ndx
+
+gmx trjconv -s MD_rep1.tpr -f md_1.xtc -o md_noPBC_rep1.xtc -pbc nojump
+> System
+gmx trjconv -s MD_rep1.tpr -f md_noPBC_rep1.xtc -n index.ndx -o md_centered_rep1.xtc -pbc mol -center
+> CORE
+> System
+gmx rms -s MD_rep1.tpr -f md_centered_rep1.xtc -n index.ndx -o rmsd_xxx_rep1.xvg -tu ns
+> CORE
+> LIG
+
+gmx trjconv -s MD_rep2.tpr -f md_2.xtc -o md_noPBC_rep2.xtc -pbc nojump
+> System
+gmx trjconv -s MD_rep2.tpr -f md_noPBC_rep2.xtc -n index.ndx -o md_centered_rep2.xtc -pbc mol -center
+> CORE
+> System
+gmx rms -s MD_rep2.tpr -f md_centered_rep2.xtc -n index.ndx -o rmsd_xxx_rep2.xvg -tu ns
+> CORE
+> LIG
+
+gmx trjconv -s MD_rep3.tpr -f md_3.xtc -o md_noPBC_rep3.xtc -pbc nojump
+> System
+gmx trjconv -s MD_rep3.tpr -f md_noPBC_rep3.xtc -n index.ndx -o md_centered_rep3.xtc -pbc mol -center
+> CORE
+> System
+gmx rms -s MD_rep3.tpr -f md_centered_rep3.xtc -n index.ndx -o rmsd_xxx_rep3.xvg -tu ns
+> CORE
+> LIG
+
+# 7.4 Tính năng lượng tự do MMPBSA
+
+gmx make_ndx -f MD.gro -o index.ndx
+# Nhập: 1 | 13
+# Nhập: name 24 Protein_LIG
+# Nhập: q
+
+gmx grompp -f MD.mdp -c MD.gro -p topol.top -n index.ndx -o clean.tpr -maxwarn 1
+gmx dump -s clean.tpr > clean.top
+cp topol.top topol_clean.top
+
+# Kích hoạt Conda chứa gmxMMPBSA
+conda activate /home/phviet/miniconda3/envs/gmxMMPBSA
+
+gmx_MMPBSA -O -i mmpbsa.in -cs clean.tpr -ct MD_center.xtc -ci index.ndx -cg 1 13 -cp topol_clean.top -o FINAL_RESULTS_MMPBSA.dat -eo FINAL_RESULTS_MMPBSA.csv
