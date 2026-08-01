@@ -1,0 +1,26 @@
+Path,Total HB,Max Occ (%),Top Residue
+/mnt/data1/anh_Thang_Supermicro/TOP2A/MD_reference/2,0.76,60.75,DC_763
+/mnt/data1/anh_Thang_Supermicro/TOP2A/MD_reference/1,0.72,31.69,DC_765
+/mnt/data1/anh_Thang_Supermicro/TOP2A/MD_reference/3,0.97,69.71,DC_791
+/mnt/data1/anh_Thang_Supermicro/TOP2A/MD_ligand/2,2.53,41.11,DG_820
+/mnt/data1/anh_Thang_Supermicro/TOP2A/MD_ligand/1,2.3,69.3,DG_792
+/mnt/data1/anh_Thang_Supermicro/TOP2A/MD_ligand/3,2.91,58.79,ARG_875
+/mnt/data1/anh_Thang_Supermicro/RFC4/MD_reference/1_(10ns),10.0,96.09,SER_54
+/mnt/data1/anh_Thang_Supermicro/RFC4/MD_reference/3_(10ns),10.67,91.99,ARG_485
+/mnt/data1/anh_Thang_Supermicro/RFC4/MD_reference/2_(10ns),7.86,94.62,ARG_456
+/mnt/data1/anh_Thang_Supermicro/RFC4/MD_ligand /1_(10ns),2.51,47.9,ASP_18
+/mnt/data1/anh_Thang_Supermicro/RFC4/MD_ligand /3_(10ns),2.19,60.27,ASP_18
+/mnt/data1/anh_Thang_Supermicro/RFC4/MD_ligand /2_(10ns),2.95,75.46,ASP_18
+/mnt/data1/anh_Thang_Supermicro/NAMPT/MD_reference/2,0.76,26.21,GLY_805
+/mnt/data1/anh_Thang_Supermicro/NAMPT/MD_reference/1,0.13,6.32,ASP_671
+/mnt/data1/anh_Thang_Supermicro/NAMPT/MD_reference/3,0.92,46.19,ASP_671
+/mnt/data1/anh_Thang_Supermicro/NAMPT/MD_ligand/2,2.28,62.34,ASP_809
+/mnt/data1/anh_Thang_Supermicro/NAMPT/MD_ligand/1,3.97,41.8,GLY_836
+/mnt/data1/anh_Thang_Supermicro/NAMPT/MD_ligand/old,2.65,25.31,ASP_806
+/mnt/data1/anh_Thang_Supermicro/NAMPT/MD_ligand/3,3.38,61.67,ASP_806
+/mnt/data1/anh_Thang_Supermicro/CYP1A1/MD_reference/1_(10ns),0.97,96.61,SER_87
+/mnt/data1/anh_Thang_Supermicro/CYP1A1/MD_reference/3_(10ns),0.06,5.12,SER_81
+/mnt/data1/anh_Thang_Supermicro/CYP1A1/MD_reference/2_(10ns),0.24,18.07,SER_87
+/mnt/data1/anh_Thang_Supermicro/CYP1A1/MD_ligand/1_(10ns),1.22,51.22,SER_87
+/mnt/data1/anh_Thang_Supermicro/CYP1A1/MD_ligand/3_(10ns),0.62,42.84,HEM_478
+/mnt/data1/anh_Thang_Supermicro/CYP1A1/MD_ligand/2_(10ns),0.64,39.7,HEM_478

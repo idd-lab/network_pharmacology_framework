@@ -1,0 +1,9 @@
+Protein,Ligand,Rep 1,Rep 2,Rep 3,Interaction Mode
+NAMPT,Compound_2,"Asp376 (-3.9), Gly837 (-1.5), Gly835 (-1.1)","Arg375 (-1.9), Asp376 (-1.5), Asn379 (-0.9)","Val808 (-1.1), Asp806 (-1.0), Asp765 (-0.6)",
+NAMPT,Reference,"Tyr10 (-2.4), Phe645 (-2.3), His643 (-1.6)","Arg648 (-1.5), Phe645 (-1.1), Glu132 (-0.6)","Tyr10 (-2.5), Phe645 (-2.4), Arg648 (-1.5)",
+CYP1A1,Compound_2,"Ser87 (-2.0), Leu461 (-0.8), Phe189 (-0.7)","Leu461 (-0.8), Phe189 (-0.7), Phe88 (-0.6)","Phe189 (-1.1), Ile351 (-0.9), Ala282 (-0.8)",
+CYP1A1,Reference,"Ser87 (-2.5), Ala282 (-1.9), Ile80 (-1.1)","Ala282 (-1.9), Gly281 (-1.7), Ser85 (-1.4)","Phe189 (-2.3), Phe223 (-2.2), Ala282 (-1.1)",
+TOP2A,Compound_2,Arg372 (-0.9),Arg372 (-0.6),"Gly876 (-1.4), Arg875 (-1.0), Arg372 (-0.6)",
+TOP2A,Reference,"Gly876 (-1.8), Arg875 (-1.1), Lys877 (-0.9)","Arg372 (-1.6), Lys877 (-1.2), Gly876 (-1.2)","Lys877 (-1.5), Lys311 (-1.0), Gly876 (-0.8)",
+RFC4,Compound_2,"Asp18 (-7.6), Tyr11 (-3.3), Arg170 (-3.0)","Arg170 (-4.3), Asp18 (-2.9), Tyr11 (-2.4)","Arg170 (-4.5), Ser21 (-3.1), Asp18 (-2.9)",
+RFC4,Reference,"Arg456 (-72.1), Arg485 (-65.1), Lys52 (-52.2)","Arg485 (-77.0), Arg456 (-75.8), Arg200 (-37.6)","Arg456 (-77.1), Arg485 (-70.8), Arg200 (-50.1)",
