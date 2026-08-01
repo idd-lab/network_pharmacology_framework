@@ -1,0 +1,152 @@
+=== ABLATION SIGNAL VERIFICATION REPORT ===
+Comparing Bulk Top 20 vs. Cluster Top 5
+
+======================================================================
+DATABASE: GO Biological Process
+======================================================================
+
+--- BULK METHOD (Top 20 Terms) ---
+   7. Small molecule metabolic process | FDR: 2.56e-48 | BG Genes: 1645
+  14. Metabolic process | FDR: 1.13e-37 | BG Genes: 7988
+  15. Steroid metabolic process | FDR: 1.13e-37 | BG Genes: 258
+  16. Organic cyclic compound metabolic process | FDR: 1.13e-37 | BG Genes: 3181
+  18. Organic substance metabolic process | FDR: 2.47e-36 | BG Genes: 7522
+  20. Cellular hormone metabolic process | FDR: 2.28e-35 | BG Genes: 131
+  23. Organic acid metabolic process | FDR: 5.40e-34 | BG Genes: 868
+  24. Oxoacid metabolic process | FDR: 7.74e-34 | BG Genes: 846
+  25. Cellular metabolic process | FDR: 1.65e-33 | BG Genes: 6568
+  26. Primary metabolic process | FDR: 1.65e-33 | BG Genes: 7156
+  28. Carboxylic acid metabolic process | FDR: 4.07e-32 | BG Genes: 819
+  29. Lipid metabolic process | FDR: 4.23e-30 | BG Genes: 1210
+  30. Hormone metabolic process | FDR: 4.52e-30 | BG Genes: 208
+  33. Xenobiotic metabolic process | FDR: 1.36e-29 | BG Genes: 115
+  34. Monocarboxylic acid metabolic process | FDR: 1.19e-25 | BG Genes: 502
+  35. Cellular response to xenobiotic stimulus | FDR: 3.94e-25 | BG Genes: 181
+  38. Estrogen metabolic process | FDR: 1.94e-23 | BG Genes: 39
+  40. Olefinic compound metabolic process | FDR: 4.21e-22 | BG Genes: 144
+  41. Cellular glucuronidation | FDR: 8.08e-22 | BG Genes: 19
+  43. Response to xenobiotic stimulus | FDR: 2.46e-21 | BG Genes: 422
+
+--- CLUSTER 1 (Top 5 Terms) ---
+   1. [LOST]      DNA metabolic process | FDR: 5.59e-12 | BG Genes: 785
+   2. [LOST]      DNA repair | FDR: 6.34e-09 | BG Genes: 497
+   3. [LOST]      Cellular response to DNA damage stimulus | FDR: 6.34e-09 | BG Genes: 744
+   4. [LOST]      Cellular response to ionizing radiation | FDR: 1.21e-07 | BG Genes: 75
+   5. [LOST]      Cell cycle process | FDR: 3.95e-07 | BG Genes: 835
+
+--- CLUSTER 2 (Top 5 Terms) ---
+   1. [LOST]      Nucleotide metabolic process | FDR: 5.05e-13 | BG Genes: 493
+   2. [LOST]      Deoxyribonucleoside monophosphate metabolic process | FDR: 1.18e-08 | BG Genes: 24
+   3. [LOST]      Pyridine-containing compound metabolic process | FDR: 6.82e-08 | BG Genes: 38
+   4. [LOST]      Purine deoxyribonucleoside monophosphate metabolic process | FDR: 1.06e-07 | BG Genes: 10
+   5. [LOST]      2-deoxyribonucleotide metabolic process | FDR: 1.06e-07 | BG Genes: 43
+
+--- CLUSTER 3 (Top 5 Terms) ---
+   1. [LOST]      tRNA aminoacylation for protein translation | FDR: 1.02e-17 | BG Genes: 43
+   2. [LOST]      tRNA metabolic process | FDR: 3.68e-15 | BG Genes: 199
+   3. [LOST]      tRNA aminoacylation for mitochondrial protein translation | FDR: 7.33e-08 | BG Genes: 9
+   4. [LOST]      Gene expression | FDR: 8.22e-06 | BG Genes: 2101
+   5. [LOST]      tryptophanyl-tRNA aminoacylation | FDR: 8.90e-04 | BG Genes: 2
+
+--- CLUSTER 4 (Top 5 Terms) ---
+   1. [RECOVERED] Steroid metabolic process | FDR: 4.37e-21 | BG Genes: 258
+   2. [RECOVERED] Cellular hormone metabolic process | FDR: 8.12e-19 | BG Genes: 131
+   3. [RECOVERED] Cellular glucuronidation | FDR: 2.35e-17 | BG Genes: 19
+   4. [RECOVERED] Estrogen metabolic process | FDR: 2.41e-15 | BG Genes: 39
+   5. [RECOVERED] Monocarboxylic acid metabolic process | FDR: 7.64e-14 | BG Genes: 502
+
+======================================================================
+DATABASE: KEGG Pathways
+======================================================================
+
+--- BULK METHOD (Top 20 Terms) ---
+   2. Steroid hormone biosynthesis | FDR: 3.87e-58 | BG Genes: 60
+   4. Metabolic pathways | FDR: 3.85e-56 | BG Genes: 1435
+   6. Metabolism of xenobiotics by cytochrome P450 | FDR: 2.78e-50 | BG Genes: 69
+   9. Chemical carcinogenesis | FDR: 1.62e-47 | BG Genes: 76
+  11. Drug metabolism - cytochrome P450 | FDR: 2.59e-42 | BG Genes: 64
+  13. Drug metabolism - other enzymes | FDR: 4.08e-39 | BG Genes: 74
+  22. Retinol metabolism | FDR: 7.74e-35 | BG Genes: 65
+  36. Pentose and glucuronate interconversions | FDR: 1.84e-24 | BG Genes: 33
+  42. Ascorbate and aldarate metabolism | FDR: 1.96e-21 | BG Genes: 26
+  57. Porphyrin and chlorophyll metabolism | FDR: 9.34e-19 | BG Genes: 41
+  58. Nicotinate and nicotinamide metabolism | FDR: 1.16e-18 | BG Genes: 33
+  73. Pyrimidine metabolism | FDR: 5.62e-17 | BG Genes: 55
+  82. Bile secretion | FDR: 2.80e-16 | BG Genes: 88
+  100. Platinum drug resistance | FDR: 2.97e-14 | BG Genes: 70
+  119. Purine metabolism | FDR: 1.38e-12 | BG Genes: 127
+  130. Arachidonic acid metabolism | FDR: 1.44e-11 | BG Genes: 60
+  154. Aminoacyl-tRNA biosynthesis | FDR: 1.29e-10 | BG Genes: 44
+  170. Glutathione metabolism | FDR: 6.51e-10 | BG Genes: 52
+  173. Fluid shear stress and atherosclerosis | FDR: 1.40e-09 | BG Genes: 129
+  185. Hepatocellular carcinoma | FDR: 3.37e-09 | BG Genes: 161
+
+--- CLUSTER 2 (Top 4 Terms) ---
+   1. [RECOVERED] Nicotinate and nicotinamide metabolism | FDR: 1.74e-23 | BG Genes: 33
+   2. [RECOVERED] Metabolic pathways | FDR: 3.94e-12 | BG Genes: 1435
+   3. [RECOVERED] Purine metabolism | FDR: 4.94e-11 | BG Genes: 127
+   4. [RECOVERED] Pyrimidine metabolism | FDR: 5.22e-11 | BG Genes: 55
+
+--- CLUSTER 3 (Top 1 Terms) ---
+   1. [RECOVERED] Aminoacyl-tRNA biosynthesis | FDR: 2.20e-16 | BG Genes: 44
+
+--- CLUSTER 4 (Top 5 Terms) ---
+   1. [RECOVERED] Steroid hormone biosynthesis | FDR: 3.51e-32 | BG Genes: 60
+   2. [RECOVERED] Retinol metabolism | FDR: 1.12e-21 | BG Genes: 65
+   3. [RECOVERED] Metabolism of xenobiotics by cytochrome P450 | FDR: 1.43e-21 | BG Genes: 69
+   4. [RECOVERED] Chemical carcinogenesis | FDR: 3.11e-21 | BG Genes: 76
+   5. [RECOVERED] Pentose and glucuronate interconversions | FDR: 5.90e-20 | BG Genes: 33
+
+======================================================================
+DATABASE: Reactome Pathways
+======================================================================
+
+--- BULK METHOD (Top 20 Terms) ---
+   5. Metabolism | FDR: 9.42e-53 | BG Genes: 2092
+  10. Biological oxidations | FDR: 8.46e-47 | BG Genes: 215
+  32. Phase II - Conjugation of compounds | FDR: 1.15e-29 | BG Genes: 104
+  37. Metabolism of lipids | FDR: 1.86e-24 | BG Genes: 739
+  39. Drug ADME | FDR: 2.59e-23 | BG Genes: 105
+  44. Cytochrome P450 - arranged by substrate type | FDR: 2.79e-21 | BG Genes: 65
+  50. Glucuronidation | FDR: 1.25e-19 | BG Genes: 23
+  52. Aspirin ADME | FDR: 4.38e-19 | BG Genes: 42
+  99. Metabolism of steroids | FDR: 2.66e-14 | BG Genes: 153
+  110. Xenobiotics | FDR: 1.35e-13 | BG Genes: 24
+  151. Glutathione conjugation | FDR: 9.68e-11 | BG Genes: 34
+  152. Metabolism of steroid hormones | FDR: 1.19e-10 | BG Genes: 35
+  153. Nucleotide catabolism | FDR: 1.19e-10 | BG Genes: 35
+  155. Biosynthesis of DHA-derived SPMs | FDR: 1.30e-10 | BG Genes: 17
+  172. Arachidonic acid metabolism | FDR: 9.64e-10 | BG Genes: 58
+  181. Metabolism of nucleotides | FDR: 2.40e-09 | BG Genes: 97
+  192. tRNA Aminoacylation | FDR: 8.73e-09 | BG Genes: 42
+  223. Endogenous sterols | FDR: 7.69e-08 | BG Genes: 27
+  236. Mitochondrial tRNA aminoacylation | FDR: 2.83e-07 | BG Genes: 21
+  237. Pyrimidine catabolism | FDR: 2.83e-07 | BG Genes: 12
+
+--- CLUSTER 1 (Top 5 Terms) ---
+   1. [LOST]      HDR through Homologous Recombination (HRR) | FDR: 3.41e-08 | BG Genes: 66
+   2. [LOST]      DNA Repair | FDR: 5.51e-08 | BG Genes: 310
+   3. [LOST]      Homologous DNA Pairing and Strand Exchange | FDR: 1.61e-07 | BG Genes: 42
+   4. [LOST]      Defective homologous recombination repair (HRR) due to BRCA2 loss of function | FDR: 1.61e-07 | BG Genes: 40
+   5. [LOST]      Impaired BRCA2 binding to RAD51 | FDR: 4.79e-06 | BG Genes: 34
+
+--- CLUSTER 2 (Top 5 Terms) ---
+   1. [LOST]      Nicotinate metabolism | FDR: 2.35e-08 | BG Genes: 30
+   2. [RECOVERED] Metabolism of nucleotides | FDR: 2.95e-06 | BG Genes: 97
+   3. [RECOVERED] Metabolism | FDR: 4.87e-06 | BG Genes: 2092
+   4. [RECOVERED] Nucleotide catabolism | FDR: 4.87e-06 | BG Genes: 35
+   5. [LOST]      Ribavirin ADME | FDR: 2.38e-05 | BG Genes: 11
+
+--- CLUSTER 3 (Top 4 Terms) ---
+   1. [RECOVERED] tRNA Aminoacylation | FDR: 6.72e-13 | BG Genes: 42
+   2. [RECOVERED] Mitochondrial tRNA aminoacylation | FDR: 3.81e-12 | BG Genes: 21
+   3. [LOST]      Cytosolic tRNA aminoacylation | FDR: 2.90e-04 | BG Genes: 24
+   4. [LOST]      Metabolism of proteins | FDR: 1.30e-03 | BG Genes: 1917
+
+--- CLUSTER 4 (Top 5 Terms) ---
+   1. [RECOVERED] Glucuronidation | FDR: 1.11e-14 | BG Genes: 23
+   2. [RECOVERED] Biological oxidations | FDR: 1.11e-14 | BG Genes: 215
+   3. [RECOVERED] Phase II - Conjugation of compounds | FDR: 2.27e-14 | BG Genes: 104
+   4. [RECOVERED] Aspirin ADME | FDR: 2.58e-13 | BG Genes: 42
+   5. [RECOVERED] Drug ADME | FDR: 1.82e-12 | BG Genes: 105
+
