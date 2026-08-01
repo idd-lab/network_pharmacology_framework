@@ -1,0 +1,98 @@
+| Run on Wed Jun 10 10:29:12 2026
+|
+|Input file:
+|--------------------------------------------------------------
+|Input file for MM/PBSA calculation
+|&general
+|  startframe=5800,
+|  endframe=7600,
+|  interval=1,
+|/
+|&pb
+|  istrng=0.15,
+|  fillratio=4.0,
+|  inp=1,
+|  radiopt=0,
+|/
+|&decomp
+|  idecomp=1,
+|/
+|--------------------------------------------------------------
+|MMPBSA.py Version=14.0
+|Complex topology file:           complex_vacuum.prmtop
+|Receptor topology file:          receptor_vacuum.prmtop
+|Ligand topology file:            ligand_vacuum.prmtop
+|Initial mdcrd(s):                complex_dry.xtc
+|
+|Receptor mask:                  ":1-1580"
+|Ligand mask:                    ":1581"
+|Ligand residue name is "LIG"
+|
+|Calculations performed using 1801.0 complex frames.
+|Poisson Boltzmann calculations performed using internal PBSA solver in sander.
+|
+|All units are reported in kcal/mole.
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+
+POISSON BOLTZMANN:
+
+Complex:
+Energy Component            Average              Std. Dev.   Std. Err. of Mean
+-------------------------------------------------------------------------------
+VDWAALS                 -13947.6001               59.3882              1.3994
+EEL                    -104195.0403              424.3538              9.9993
+EPB                     -35406.6938              365.8518              8.6208
+ENPOLAR                    377.2041                2.3906              0.0563
+
+G gas                  -118142.6403              419.9265              9.8950
+G solv                  -35029.4897              365.0111              8.6010
+
+TOTAL                  -153172.1300              132.1745              3.1145
+
+
+Receptor:
+Energy Component            Average              Std. Dev.   Std. Err. of Mean
+-------------------------------------------------------------------------------
+VDWAALS                 -13908.2922               59.2524              1.3962
+EEL                    -104081.7227              425.9686             10.0374
+EPB                     -35416.3210              367.1135              8.6505
+ENPOLAR                    378.1444                2.3909              0.0563
+
+G gas                  -117990.0149              421.4807              9.9316
+G solv                  -35038.1766              366.2723              8.6307
+
+TOTAL                  -153028.1914              132.1458              3.1138
+
+
+Ligand:
+Energy Component            Average              Std. Dev.   Std. Err. of Mean
+-------------------------------------------------------------------------------
+VDWAALS                     -2.3643                0.8138              0.0192
+EEL                        -97.0922                5.2477              0.1237
+EPB                        -24.4448                1.8765              0.0442
+ENPOLAR                      2.2949                0.0283              0.0007
+
+G gas                      -99.4565                5.3238              0.1254
+G solv                     -22.1499                1.8690              0.0440
+
+TOTAL                     -121.6064                4.1459              0.0977
+
+
+Differences (Complex - Receptor - Ligand):
+Energy Component            Average              Std. Dev.   Std. Err. of Mean
+-------------------------------------------------------------------------------
+VDWAALS                    -36.9435                2.3206              0.0547
+EEL                        -16.2254                4.8615              0.1146
+EPB                         34.0720                4.4786              0.1055
+ENPOLAR                     -3.2353                0.0930              0.0022
+EDISPER                      0.0000                0.0000              0.0000
+
+DELTA G gas                -53.1690                4.9081              0.1157
+DELTA G solv                30.8367                4.4533              0.1049
+
+DELTA TOTAL                -22.3322                3.5973              0.0848
+
+
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
