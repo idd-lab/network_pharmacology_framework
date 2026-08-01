@@ -1,0 +1,13 @@
+title           = Minimization Stage 1 (Loose)
+define          = -DPOSRES
+integrator      = steep
+emtol           = 1000.0
+nsteps          = 50000
+cutoff-scheme   = Verlet
+coulombtype     = PME
+rcoulomb        = 1.2
+vdwtype         = Cut-off
+vdw-modifier    = Force-switch
+rvdw_switch     = 1.0
+rvdw            = 1.2
+pbc             = xyz
