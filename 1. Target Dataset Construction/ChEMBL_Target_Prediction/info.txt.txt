@@ -1,0 +1,4 @@
+https://www.ebi.ac.uk/chembl/search_results/O%3DC2CC%5BC%40%40H%5D(%5BC%40%40H%5D(O)%5BC%40H%5D(O)%5BC%40H%5D(O)c1ccccc1)O2?focusEntity=targets
+Query: O=C2CC[C@@H]([C@@H](O)[C@H](O)[C@H](O)c1ccccc1)O2
+Date of retrieval: 08/12/2025
+Subject all to UniProt Mapepr, retrieved 1435 UniProt IDs.

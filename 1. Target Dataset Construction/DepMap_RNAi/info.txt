@@ -1,0 +1,6 @@
+https://depmap.org/portal/cell_line/ACH-000002?tab=overview
+Download gene effect z-scores for all genes: RNAi
+Date of retrieval: 08/12/2025
+File: gene_effects_ACH-000002.csv
++ Cutoff score -0.5 applied to gene_effect, result in 700 Gene Names
++ Subject to UniProt Mapper, retrieve 716 reviewed UniProt ID

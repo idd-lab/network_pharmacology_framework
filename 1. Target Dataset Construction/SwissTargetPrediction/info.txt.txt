@@ -1,0 +1,4 @@
+https://www.swisstargetprediction.ch/result.php?job=86169522&organism=Homo_sapiens
+Query: O=C2CC[C@@H]([C@@H](O)[C@H](O)[C@H](O)c1ccccc1)O2
+Date of retrieval: 08/12/2025
+Retrieved 100 UniProt IDs.

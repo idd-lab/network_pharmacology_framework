@@ -1,0 +1,8 @@
+Log file for target group selection:
+
++ Group A: Exploratory Targets. Predicted targets that overlapped in two or all three target predictors + top prediction of Swiss (cut off: 0.05) and MTPRC (cutoff score 0.5)
+302 UniProt IDs.
+
++ Group B: Investigative Targets. DepMap essential proteins for HL-60 (cutoff -0.5)
+699 UniProt IDs.
+

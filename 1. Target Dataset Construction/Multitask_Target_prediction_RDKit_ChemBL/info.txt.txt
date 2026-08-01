@@ -1,0 +1,5 @@
+Webserver: https://chembl.github.io/chembl_multitask_model/
+Github: https://github.com/chembl/chembl_multitask_model?tab=readme-ov-file
+Query: O=C2CC[C@@H]([C@@H](O)[C@H](O)[C@H](O)c1ccccc1)O2
+Date of retrieval: 08/12/2025
+Retrieved 706 ChemBL IDs, mapped to 706 UniProt IDs.
