@@ -1,0 +1,65 @@
+Dependency Analysis Log:
+
+Database download: https://depmap.org/portal/data_page/?tab=allData
+
++ Expression Download:
+
+
+OmicsExpressionTPMLogp1HumanProteinCodingGenes.csv
+Log-transformed TPM (Transcripts Per Million) values at gene level derived from unstranded RNA-seq for protein-coding genes in human One row per profile Columns are ProfileID, is_default_entry, ModelID and then a column per gene
+305.0 MB
+
+
+
+OmicsExpressionTPMLogp1HumanProteinCodingGenes.csv
+DepMap Public 26Q1
+
+Description
+Log-transformed TPM (Transcripts Per Million) values at gene level derived from unstranded RNA-seq for protein-coding genes in human
+
+One row per profile Columns are ProfileID, is_default_entry, ModelID and then a column per gene
+
+Release Citation
+For DepMap Release data, including CRISPR Screens, PRISM Drug Screens, Copy Number, Mutation, Expression, and Fusions:
+DepMap, Broad (2025). DepMap Public 25Q3. Dataset. depmap.org
+Please note, you may need to update the release quarter depending on which version of the data you are using.
+
+Funding
+This project is partially funded by the DepMap Consortium, the Robertson Foundation, the Minderoo Foundation and the Pediatric Cancer Dependencies Accelerator.
+
++ Dependency Download:
+
+D2_combined_gene_dep_scores.csv
+179.48 MB
+
+
+
+D2_combined_gene_dep_scores.csv
+DEMETER2 Data v6
+
+Description
+Release Citation
+James M. McFarland, Zandra V. Ho, Guillaume Kugener, Joshua M. Dempster, Phillip G. Montgomery, Jordan G. Bryan, John M. Krill-Burger, Thomas M. Green, Francisca Vazquez, Jesse S. Boehm, Todd R. Golub, William C. Hahn, David E. Root, Aviad Tsherniak. (2018). Improved estimation of cancer dependencies from large-scale RNAi screens using model-based normalization and data integration. Nature Communications 9, 1. https://doi.org/10.1038/s41467-018-06916-5
+
+
++ Analysis: extract_q1_matrix.py
+
+Resulting file:
+
+"C:\Users\THANG\Desktop\project1\Goniothalamus_macrocalyx_of\Bioinformatics_Analysis\Dependency_Proxy\Q1_Unified_Omics_Matrix.csv"
+
+
++ Interpretation:
+
+Expression Columns (_Expr): These are the Log2(TPM+1) values from DepMap. They tell you the base abundance of the mRNA. You successfully retrieved the data for your normal proxies (BJ_Expr and WI-38_Expr)!
+
+Dependency Columns (_RNAi): These are the DEMETER2 scores.How to analyze: Look for numbers <= -0.5. In the snippet, ACLY has an RNAi score of -0.689 in HL-60 and -0.830 in MCF-7, meaning knocking it down kills both cell types. However, ADK is -0.66 in HL-60 but +0.006 in MCF-7, meaning HL-60 is critically addicted to ADK, while MCF-7 doesn't care if it loses it.
+
+Log2FC_HL60_vs_BJ: This is the Therapeutic Window. How to analyze: Positive numbers are better, ideally > 1.0. This means HL-60 expresses more of the target than healthy skin cells (BJ).
+
+Delta_RNAi_HL60_vs_MCF7: This is the Selective Lethality. How to analyze: You want highly negative numbers. A negative number means the knockdown was much more toxic to HL-60 than to MCF-7. For example, ADK has a $\Delta$ of -0.666.
+
+
+
+
+
