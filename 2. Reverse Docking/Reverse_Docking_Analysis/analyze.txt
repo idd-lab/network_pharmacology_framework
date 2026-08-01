@@ -1,0 +1,21 @@
+(autogrow_env) yourusername@DESKTOP-4CFCO1H:/mnt/c/Users/THANG/Desktop/project1/Goniothalamus_macrocalyx_of/Reverse_Docking_Analysis$ python3 analyze_hits.py
+1. Loading Datasets...
+
+--- Statistics for Group A ---
+   N (Targets):      290
+   Mean Affinity:    -6.957 kcal/mol
+   Std Deviation:    0.899
+   Strongest Binder: -9.278 kcal/mol
+
+--- Statistics for Group B ---
+   N (Targets):      649
+   Mean Affinity:    -6.372 kcal/mol
+   Std Deviation:    1.460
+   Strongest Binder: -9.383 kcal/mol
+
+2. Analyzing Tier 1: Overlap Candidates...
+
+3. Exporting CSVs to Analysis_Results...
+   -> Tier 1 Saved: Analysis_Results/Tier1_Overlap_Candidates.csv
+   -> Tier 2 Saved: Analysis_Results/Tier2_Mechanism_TopHits.csv
+   -> Tier 3 Saved: Analysis_Results/Tier3_Exploratory_TopHits.csv
