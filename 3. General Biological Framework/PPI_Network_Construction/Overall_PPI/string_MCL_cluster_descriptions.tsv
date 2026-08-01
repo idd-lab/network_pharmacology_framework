@@ -1,0 +1,13 @@
+#clustering method	cluster number	cluster color	hex color	gene count	primary description	secondary description	tertiary description	protein names
+MCL	1	Red	#ff0000	4	Impaired BRCA2 binding to RAD51	Mixed, incl. Spindle elongation, and Axon hillock	-	KIF11, TOP2A, RFC4, RAD51
+MCL	2	Brown	#ffa365	3	Nicotinate and nicotinamide metabolism	dAMP metabolism	Ribavirin ADME	NAMPT, PNP, ADK
+MCL	3	Dark Golden Rod	#b28e00	3	Aminoacyl-tRNA biosynthesis	tRNA aminoacylation for protein translation	-	KARS1, HARS2, WARS1
+MCL	4	Yellow	#e0ff65	3	Steroid hormone biosynthesis	Biosynthesis of protectins	-	CYP1A2, CYP1A1, HSD11B1
+MCL	5	Green	#47b200	2	-	-	-	HDAC7, EZH2
+MCL	6	Light Green	#66ff65	2	Proteasome core complex, beta-subunit complex	Threonine protease	-	PSMB7, PSMB4
+MCL	7	Lime Green	#00b247	2	Female courtship behavior	Thyroid hormone binding	-	THRA, THRB
+MCL	8	Cyan	#65ffe0	2	Folate biosynthesis	Prostaglandin H2 endoperoxidase reductase activity	Daunorubicin metabolism	AKR1B1, AKR1C3
+MCL	9	Dark Cyan	#008eb2	2	Activation of NF-kappaB-inducing kinase activity	MyD88-dependent toll-like receptor signaling pathway, and Pellino family	-	TLR3, IRAK1
+MCL	10	Blue	#65a3ff	2	-	-	-	PGR, CYP19A1
+MCL	11	Purple	#ef75d7	2	-	-	-	ALOX5, PLA2G2D
+MCL	12	Pink	#ef75a6	2	-	-	-	AKT1, ACLY
